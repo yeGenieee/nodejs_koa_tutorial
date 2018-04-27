@@ -2,9 +2,8 @@
 const Index = require('koa-router');
 
 const api = new Index();
+const books = require('./books');
 
-api.get('/books', (ctx, next) => {
-   ctx.body = 'GET' + ctx.request.path;
-});
+api.use('/books', books.routes());
 
 module.exports = api;
